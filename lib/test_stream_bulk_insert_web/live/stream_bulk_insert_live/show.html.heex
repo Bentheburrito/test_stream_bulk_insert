@@ -1,0 +1,25 @@
+<.header>
+  Stream bulk insert <%= @stream_bulk_insert.id %>
+  <:subtitle>This is a stream_bulk_insert record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/asdf/#{@stream_bulk_insert}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit stream_bulk_insert</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+</.list>
+
+<.back navigate={~p"/asdf"}>Back to asdf</.back>
+
+<.modal :if={@live_action == :edit} id="stream_bulk_insert-modal" show on_cancel={JS.patch(~p"/asdf/#{@stream_bulk_insert}")}>
+  <.live_component
+    module={TestStreamBulkInsertWeb.StreamBulkInsertLive.FormComponent}
+    id={@stream_bulk_insert.id}
+    title={@page_title}
+    action={@live_action}
+    stream_bulk_insert={@stream_bulk_insert}
+    patch={~p"/asdf/#{@stream_bulk_insert}"}
+  />
+</.modal>

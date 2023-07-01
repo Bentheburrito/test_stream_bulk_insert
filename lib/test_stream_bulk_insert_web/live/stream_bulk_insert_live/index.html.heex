@@ -1,0 +1,5 @@
+<div :if={assigns[:streams][:mystream]} id="session-list" phx-update="stream">
+  <div :for={{dom_id, {one, two}} <- @streams.mystream} id={dom_id}>
+    1: <%= one %>, 2: <%= two %>
+  </div>
+</div>
